@@ -4,7 +4,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
-
+//Create queue with Duplicate detection and session enabled
 public class PocServiceBusTrigger
 {
     private readonly IConfiguration _config;
@@ -25,7 +25,7 @@ public class PocServiceBusTrigger
             var serviceBusMessage = new ServiceBusMessage(i.ToString());
             serviceBusMessage.MessageId = "MessageId";
             serviceBusMessage.SessionId = "SAME";
-            //serviceBusMessage.SessionId = i.ToString();
+            //serviceBusMessage.SessionId = i.ToString();//Uncomment this and comment above to test with variable session id
             await sender.SendMessageAsync(serviceBusMessage);
             logger.LogWarning("SENT message {ServiceBusMessage} with sessionId {sessionId}", serviceBusMessage.Body, serviceBusMessage.SessionId);
         }
