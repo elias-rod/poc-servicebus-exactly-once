@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Poc_ServiceBus_ExactlyOnce": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7241",
+      "launchBrowser": false
+    }
+  }
+}
