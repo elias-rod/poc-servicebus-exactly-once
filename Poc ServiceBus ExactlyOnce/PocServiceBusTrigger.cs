@@ -1,4 +1,3 @@
-using Azure.Identity;
 using Azure.Messaging.ServiceBus;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +14,7 @@ public class PocServiceBusTrigger
 
     [FunctionName(nameof(PocTimerTrigger))]
     public async Task PocTimerTrigger(
-        [TimerTrigger("* * 17 * * *", RunOnStartup = true)] TimerInfo timerInfo, ILogger logger)
+        [TimerTrigger("* * 17 1 * *", RunOnStartup = true)] TimerInfo timerInfo, ILogger logger)
     {
         var serviceBusClient = new ServiceBusClient(_config.GetValue<string>("AzureWebJobsServiceBus"));
         await using var sender = serviceBusClient.CreateSender(_config.GetValue<string>("ServiceBusQueueName"));
