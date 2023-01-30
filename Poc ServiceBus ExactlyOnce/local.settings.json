@@ -4,6 +4,7 @@
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
     "ServiceBusQueueName": "QUEUENAME",
-    "AzureWebJobsServiceBus": "CONNECTION STRING"
+    "AzureWebJobsServiceBus": "CONNECTION STRING",
+    "NumberOfMessages": 5
   }
 }
